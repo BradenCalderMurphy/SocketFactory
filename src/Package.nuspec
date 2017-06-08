@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SocketFactory</id>
+    <version>1.0.0</version>
+    <authors>STSoftware</authors>
+    <owners>STSoftware</owners>
+    <licenseUrl>https://github.com/BradenCalderMurphy/SocketFactory/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/BradenCalderMurphy/SocketFactory</projectUrl>
+    <iconUrl>https://github.com/BradenCalderMurphy/SocketFactory/raw/master/app.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package description</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>SocketFactory Socket Factory WebServer</tags>
+  </metadata>
+</package>

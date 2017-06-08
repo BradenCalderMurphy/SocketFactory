@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+	
+	<script src="websocket.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		function sendData() {
+			var d = new Date();
+			var cmd = new BasicPacket("This is a message from the client at " + d.toString());
+			socket.send(JSON.stringify(cmd));
+		}
+
+        function onUpdate(obj) {
+            var pdata = document.getElementById("pdata");
+
+            pdata.appendChild(document.createTextNode(obj.Data));
+            pdata.appendChild(document.createElement("br"));
+		}
+		
+		function onClose() {
+            var pdata = document.getElementById("pdata");
+
+            pdata.appendChild(document.createTextNode("Closing Socket..."));
+            pdata.appendChild(document.createElement("br"));
+		}
+		
+	    function onOpen() {
+            var pdata = document.getElementById("pdata");
+
+            pdata.appendChild(document.createTextNode("Socket is open."));
+            pdata.appendChild(document.createElement("br"));
+		}
+		
+		var socket = new ClientSpawn(onUpdate, onClose, onOpen, 10201);
+		socket.connect();
+	</script>
+		
+   </head>
+   <body>
+        <button onclick="sendData()">Send data</button>
+        <div id="pdata"></div>
+      
+   </body>
+</html>
