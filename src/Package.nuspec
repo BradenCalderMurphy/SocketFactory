@@ -7,11 +7,14 @@
     <owners>STSoftware</owners>
     <licenseUrl>https://github.com/BradenCalderMurphy/SocketFactory/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/BradenCalderMurphy/SocketFactory</projectUrl>
-    <iconUrl>https://github.com/BradenCalderMurphy/SocketFactory/raw/master/app.png</iconUrl>
+    <iconUrl>https://github.com/BradenCalderMurphy/SocketFactory/blob/master/app.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Package description</description>
+    <description>A Library that wraps an unencrypted socket server, encrypted socket server and an unencrypted web socket server.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>SocketFactory Socket Factory WebServer</tags>
   </metadata>
+	<files>
+		<file src="SocketFactory.Examples\*.*" target="SocketFactory.Examples" />
+	</files>
 </package>
