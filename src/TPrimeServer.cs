@@ -5,5 +5,10 @@
              : base(handler, typeof(T)) {
 
         }
+
+        public PrimeServer()
+          : this(null) {
+
+        }
     }
 }
