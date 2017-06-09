@@ -23,6 +23,7 @@ bin_release.zip
 bin_secure.zip
 [Ss]uite.zip
 *.zip
+*.nuspec
 
 #Delphi
 *.dcuil

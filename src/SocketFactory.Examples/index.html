@@ -2,8 +2,14 @@
 <html>
    <head>
 	
-	<script src="websocket.js" type="text/javascript"></script>
+	<script src="clientspawn.js" type="text/javascript"></script>
 	<script type="text/javascript">
+
+        class BasicPacket {
+            constructor(data) {
+                this.Data = data;
+            }
+        }
 
 		function sendData() {
 			var d = new Date();

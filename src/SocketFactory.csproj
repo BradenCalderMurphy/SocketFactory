@@ -45,13 +45,13 @@
     <Compile Include="CommsThread.cs" />
     <Compile Include="Encrypt\CryptoStreamWrapper.cs" />
     <Compile Include="EndOfStreamHandler.cs" />
-    <Compile Include="SocketFactory.Examples\BasicPacket.cs" />
-    <Compile Include="SocketFactory.Examples\Globals.cs" />
-    <Compile Include="SocketFactory.Examples\MyClient.cs" />
-    <Compile Include="SocketFactory.Examples\MyServer.cs" />
+    <None Include="SocketFactory.Examples\BasicPacket.cs" />
+    <None Include="SocketFactory.Examples\Globals.cs" />
+    <None Include="SocketFactory.Examples\MyClient.cs" />
+    <None Include="SocketFactory.Examples\MyServer.cs" />
     <Compile Include="IBaseSpawnHandler.cs" />
     <Compile Include="Packet.cs" />
-    <Compile Include="SocketFactory.Examples\FactoryProgram.cs" />
+    <None Include="SocketFactory.Examples\FactoryProgram.cs" />
     <Compile Include="StreamPacket.cs" />
     <Compile Include="ClientSpawn.cs" />
     <Compile Include="Environment\DateTimeEnvironment.cs" />
@@ -72,8 +72,8 @@
     <Compile Include="InternalPacket.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SocketFactory.Examples\index.html" />
-    <Content Include="SocketFactory.Examples\websocket.js" />
+    <None Include="SocketFactory.Examples\index.html" />
+    <None Include="SocketFactory.Examples\clientspawn.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

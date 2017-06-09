@@ -11,15 +11,18 @@ namespace SocketFactory.Examples {
         private MyServer _server;
         private MyClient _client;
 
-        public void Run() {
+        public static void Run() {
+            new FactoryProgram().InternalRun();
+        }
+
+        private void InternalRun() {
 
             if (this.Start()) {
                 Console.WriteLine("Press any key to close the connections and exit.");
                 Console.ReadLine();
-                _server?.Stop();
                 _client?.Stop();
+                _server?.Stop();
             }
-
         }
 
         private bool Start() {
