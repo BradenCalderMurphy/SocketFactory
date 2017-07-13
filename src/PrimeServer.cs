@@ -197,10 +197,12 @@ namespace SocketFactory {
         public void Broadcast(Packet obj) {
             try {
                 // Enqueue the TransmissionObject to each client in the client list.
+                List<ServerSpawn> lst = null;
                 lock (_clientListLock) {
-                    foreach (ServerSpawn ss in _clientList.ToArray()) {
-                        ss.EnqueueObject(obj);
-                    }
+                    lst = _clientList;
+                }
+                foreach (ServerSpawn ss in lst) {
+                    ss.EnqueueObject(obj);
                 }
             }
             catch (Exception ex) {

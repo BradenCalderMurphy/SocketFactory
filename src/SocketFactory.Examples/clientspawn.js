@@ -7,11 +7,12 @@ class TextPacket {
 
 class ClientSpawn {
 
-	constructor(onUpdate, onClose, onOpen, port) {
+	constructor(onUpdate, onClose, onOpen, ip, port) {
 		this._isConnected = new Boolean(false);
 		this._onUpdate = onUpdate;
 		this._onClose = onClose;
-		this._onOpen = onOpen;
+        this._onOpen = onOpen;
+        this._ip = ip;
 		this._port = port;
 		this._socket = null;
 	}
@@ -34,7 +35,7 @@ class ClientSpawn {
 			return;
 		}
 
-		spawn._socket = new WebSocket("ws://localhost:" + spawn._port + "/");
+		spawn._socket = new WebSocket("ws://" + spawn._ip + ":" + spawn._port + "/");
 		
 	    spawn._socket.onopen = function()
 	    {

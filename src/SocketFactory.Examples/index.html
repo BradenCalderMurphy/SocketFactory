@@ -38,7 +38,7 @@
             pdata.appendChild(document.createElement("br"));
 		}
 		
-		var socket = new ClientSpawn(onUpdate, onClose, onOpen, 10201);
+		var socket = new ClientSpawn(onUpdate, onClose, onOpen, "127.0.0.1", 10201);
 		socket.connect();
 	</script>
 		

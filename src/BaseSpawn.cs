@@ -113,18 +113,10 @@ namespace SocketFactory {
                 bool sendDC = false;
                 bool sendC = false;
                 string sendDCMessage = "";
+
                 lock (_connectedLock) {
                     if (!value && _connected) {
                         sendDC = true;
-                        try {
-                            _socket.Shutdown(SocketShutdown.Both);
-                            _socket.Disconnect(true);
-                            sendDCMessage = "Successfully Disconnected.";
-                        }
-                        catch (Exception ex) {
-                            sendDCMessage = ex.Message;
-                            GeneralExceptionLog("ClientSpawn.Failed to shutdown/disconnect: " + ex.Message);
-                        }
                     }
                     else if (value && !_connected) {
                         sendC = true;
@@ -133,6 +125,16 @@ namespace SocketFactory {
                 }
 
                 if (sendDC) {
+                    try {
+                        _socket.Shutdown(SocketShutdown.Both);
+                        _socket.Disconnect(true);
+                        sendDCMessage = "Successfully Disconnected.";
+                    }
+                    catch (Exception ex) {
+                        sendDCMessage = ex.Message;
+                        GeneralExceptionLog("ClientSpawn.Failed to shutdown/disconnect: " + ex.Message);
+                    }
+
                     _onDisconnect?.Invoke(this);
                     _handler?.OnDisconnect(this, sendDCMessage);
                     _protocol?.OnDisconnect(this);
@@ -306,7 +308,7 @@ namespace SocketFactory {
             if (packet == null) return;
             if(packet is InternalPacket &&
               (packet as InternalPacket).PacketType == InternalPacket.InternalPacketType.RequestToShutdown) {
-                while(_writeQueue.Count() > 0) {
+                while (_writeQueue.Count() > 0) {
                     _writeQueue.TryDequeue(out Packet p);
                 }
             }
