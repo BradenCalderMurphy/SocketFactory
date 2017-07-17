@@ -237,6 +237,34 @@ namespace SocketFactory {
         }
 
         /// <summary>
+        /// Enqueues a transmission object to be sent, in the server's pending object queue.
+        /// </summary>
+        /// <param param name="sender">Client to send data to.
+        /// </param>
+        /// <param name="transObj">TransmissionObject to be sent.
+        /// </param>
+        public void EnqueueObject(BaseSpawn sender, Packet obj) {
+            if (sender == null) {
+                GeneralExceptionLog("Could not find client to transmit object to: IPAddress is NULL");
+                return;
+            }
+            List<ServerSpawn> spawns = null;
+            lock (_clientListLock) {
+                spawns = (from c in _clientList
+                          where c.Equals(sender)
+                          select c).ToList();
+            }
+
+            if (spawns == null || spawns.Count == 0) {
+                GeneralExceptionLog("Could not find client to transmit object to.");
+                return;
+            }
+            spawns.ForEach(x => x.EnqueueObject(obj));
+        }
+
+
+
+        /// <summary>
         /// Extracts the client's IP address from the socket connected to the client.
         /// </summary>
         /// <param name="soc">The socket connected to the client.
