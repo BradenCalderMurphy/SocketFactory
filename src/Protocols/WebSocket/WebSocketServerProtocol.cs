@@ -117,7 +117,7 @@ namespace SocketFactory.Protocols.WebSocket {
             GroupCollection groups = new Regex("Sec-WebSocket-Key: (.*)").Match(data).Groups;
             if (groups == null || groups.Count <= 1) return false;
 
-            const string END_DATA = "client_max_window_bits\r\n\r\n";
+            const string END_DATA = "\r\n\r\n";
             if (!data.EndsWith(END_DATA)) return false;
 
             string key = groups[1].Value.Trim() + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
