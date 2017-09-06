@@ -3,6 +3,7 @@ packages/
 
 #Personal
 
+*.nupkg
 [Nn]otes/
 bin_licenseedit/
 [Pp]roject [Ss]amples/
